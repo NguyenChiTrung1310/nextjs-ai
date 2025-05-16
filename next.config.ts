@@ -3,7 +3,12 @@ import type {NextConfig} from 'next'
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ['lh3.googleusercontent.com', 'firebasestorage.googleapis.com'],
+    remotePatterns: [
+      {
+        hostname: 'lh3.googleusercontent.com',
+      },
+      {hostname: 'firebasestorage.googleapis.com'},
+    ],
   },
   reactStrictMode: false,
 }
