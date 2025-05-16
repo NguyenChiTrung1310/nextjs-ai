@@ -1,65 +1,56 @@
-import {Calendar, Home, Inbox, Search, Settings} from 'lucide-react'
+'use client'
+import {CircleDollarSign, Home, Paintbrush} from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+import {usePathname} from 'next/navigation'
 
 import {Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu} from '@/components/ui/sidebar'
+import {cn} from '@/lib/utils'
 
 const items = [
   {
-    title: 'Home',
-    url: '#',
+    title: 'Workspace',
+    url: '/dashboard',
     icon: Home,
   },
   {
-    title: 'Inbox',
-    url: '#',
-    icon: Inbox,
+    title: 'Design',
+    url: '/designs',
+    icon: Paintbrush,
   },
   {
-    title: 'Calendar',
-    url: '#',
-    icon: Calendar,
-  },
-  {
-    title: 'Search',
-    url: '#',
-    icon: Search,
-  },
-  {
-    title: 'Settings',
-    url: '#',
-    icon: Settings,
+    title: 'Credits',
+    url: '/credits',
+    icon: CircleDollarSign,
   },
 ]
 
 export function AppSidebar() {
+  const path = usePathname()
+
   return (
     <Sidebar>
       <SidebarHeader>
         <div className='p-4'>
-          <Image src={'./logo.svg'} alt='logo' width={100} height={100} className='h-full w-full' />
-          <h2 className='text-center text-sm text-gray-400'>Build Awesome</h2>
+          <Image src={'/logo.svg'} alt='logo' width={200} height={200} />
         </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className='mt-5'>
+            <SidebarMenu className='mt-1'>
               {items.map((item, index) => (
-                // <SidebarMenuItem key={item.title} className='p-2'>
-                //     <SidebarMenuButton asChild className=''>
-                <a href={item.url} key={index} className='flex items-center gap-2 rounded-lg p-2 text-lg hover:bg-gray-100'>
+                <Link href={item.url} key={index} className={cn('flex items-center gap-2 rounded-lg p-2 text-lg hover:bg-gray-100', path === item.url && 'bg-gray-200 font-bold')}>
                   <item.icon className='h-5 w-5' />
                   <span>{item.title}</span>
-                </a>
-                //     </SidebarMenuButton>
-                // </SidebarMenuItem>
+                </Link>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <h2 className='p-2 text-sm text-gray-400'>Copyright @Tubeguruji</h2>
+        <h2 className='p-2 text-sm text-gray-400'>Nextjs App</h2>
       </SidebarFooter>
     </Sidebar>
   )
