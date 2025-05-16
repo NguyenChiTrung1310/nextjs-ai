@@ -1,4 +1,5 @@
 'use client'
+import axios from 'axios'
 import {useRouter} from 'next/navigation'
 import React, {useEffect} from 'react'
 
@@ -24,11 +25,11 @@ function DashboardProvider({
   }, [user])
 
   const checkUser = async () => {
-    // const result = await axios.post('/api/user', {
-    //   userName: user?.user?.displayName,
-    //   userEmail: user?.user?.email,
-    // })
-    console.log(user)
+    // Store user data in the database
+    await axios.post('/api/user', {
+      userName: user?.user?.displayName,
+      userEmail: user?.user?.email,
+    })
   }
 
   return (
