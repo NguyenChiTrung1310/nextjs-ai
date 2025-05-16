@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+This is a [Neon Tech](https://console.neon.tech/)
+
+## Getting Started
+
+First, create new project in [Neon Tech](https://console.neon.tech/)
+Second, connect DB (make sure create new DB), then copy the snippet and paste to NEXT_PUBLIC_NEON_DB_CONNECTION_STRING variable in the .env file
+Third, create new table in the drizzle by run:
+
+```bash
+npx drizzle-kit push
+```
+
+(make sure already have config db and schema), (check example in `configs/db.tsx` and `configs/schema.ts`)
+
+Finally run drizzle kit studio:
+
+```bash
+npx drizzle-kit studio
+```
