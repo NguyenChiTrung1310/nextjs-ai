@@ -1,18 +1,13 @@
 import React from 'react'
-import DashboardProvider from './provider';
 
+import DashboardProvider from './provider'
 
 function DashboardLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-
-    return (
-        <DashboardProvider>
-            {children}
-        </DashboardProvider>
-    )
+  return <DashboardProvider>{children}</DashboardProvider>
 }
 
 export default DashboardLayout
