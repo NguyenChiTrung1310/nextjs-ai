@@ -25,7 +25,7 @@ function ProfileAvatar() {
   return (
     <div>
       <Popover>
-        <PopoverTrigger>{user?.user?.photoURL && <Image src={user?.user?.photoURL} alt='profile' className='h-[35px] w-[35px] rounded-full' />}</PopoverTrigger>
+        <PopoverTrigger>{user?.user?.photoURL && <Image src={user?.user?.photoURL} alt='profile' width={40} height={40} className='rounded-full' />}</PopoverTrigger>
         <PopoverContent className='mx-w-sm w-[100px]'>
           <Button variant={'ghost'} onClick={onButtonPress} className=''>
             Logout
